@@ -4,7 +4,7 @@ using System;
 public partial class CostManager : Node
 {
 	private TextEdit CurrentCostText;
-	public int CurrentCost { get; set; };
+	public int CurrentCost { get; set; }
 	private int IncreaseRate { get; set;} = 5;
 	public double Time;
     public override void _Ready()
