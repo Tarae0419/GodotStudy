@@ -11,8 +11,6 @@ public partial class UpgradeAttack : Button
 	{
 		AttackText = GetNode<TextEdit>("../StatText");
 		PlayerStat = GetNode<PlayerStats>("../PlayerStat");
-		AttackStat = 3;
-		Text = "업그레이드";
 		Connect("pressed",new Callable(this, "OnButtonPressed"));
 	}
 
