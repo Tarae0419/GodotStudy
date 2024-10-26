@@ -30,7 +30,6 @@ public partial class UpgradeAttack : Button
 			GD.Print("체력 업그레이드 성공!");
 			break;
 		}
-
 		UpdateStat();
 	}
 
