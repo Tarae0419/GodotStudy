@@ -7,7 +7,6 @@ public partial class PlayerStats : Node
 	private int Attack { get; set; } = 3;
     private int Defense { get; set; } = 3;
     private int Health { get; set; } = 20;
-	private int CurrentCost { get; set; } = 0;
 
     public void UpgradeAttack(int amount)
 	{
