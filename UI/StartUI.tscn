@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c50wrnplxlrti"]
 
-[ext_resource type="Script" path="res://UI/Scripts/StartUIManager.cs" id="1_s0n8o"]
+[ext_resource type="Script" path="res://Scripts/StartUIManager.cs" id="1_s0n8o"]
 
 [node name="StartUi" type="Control"]
 layout_mode = 3

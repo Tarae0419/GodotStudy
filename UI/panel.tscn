@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c48t55nnehpy0"]
 
-[ext_resource type="Script" path="res://UI/Scripts/UpgradeManager.cs" id="1_anmsu"]
-[ext_resource type="Script" path="res://UI/Scripts/PlayerStats.cs" id="2_snj7w"]
-[ext_resource type="Script" path="res://UI/Scripts/CostManager.cs" id="3_yyj1v"]
+[ext_resource type="Script" path="res://Scripts/UpgradeManager.cs" id="1_anmsu"]
+[ext_resource type="Script" path="res://Scripts/PlayerStats.cs" id="2_snj7w"]
+[ext_resource type="Script" path="res://Scripts/CostManager.cs" id="3_yyj1v"]
 
 [node name="Panel" type="Panel"]
 self_modulate = Color(0, 57.979, 100, 1)
