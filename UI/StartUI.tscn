@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://c50wrnplxlrti"]
+
+[ext_resource type="Script" path="res://UI/Scripts/StartUIManager.cs" id="1_s0n8o"]
+
+[node name="StartUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s0n8o")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(600, 1024)
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 1024.0
+
+[node name="Title" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 96.0
+offset_top = 113.0
+offset_right = 496.0
+offset_bottom = 413.0
+theme_override_font_sizes/font_size = 100
+text = "보스 
+슬레이어"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(350, 120)
+layout_mode = 0
+offset_left = 130.0
+offset_top = 517.0
+offset_right = 480.0
+offset_bottom = 637.0
+theme_override_font_sizes/font_size = 55
+text = "시작하기"

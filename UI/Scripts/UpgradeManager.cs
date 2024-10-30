@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class UpgradeAttack : Button
+public partial class UpgradeManager : Button
 {
 	private int AttackStat;
 	private TextEdit AttackText; 
