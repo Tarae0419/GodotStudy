@@ -4,7 +4,7 @@ using System;
 public partial class CostManager : Node
 {
 	private TextEdit CurrentCostText;
-	public int CurrentCost { get; set; }
+	public int CurrentBalance { get; set; }
 	private int IncreaseRate { get; set;} = 5;
 	public double Time;
     public override void _Ready()
@@ -17,11 +17,11 @@ public partial class CostManager : Node
 
 		if(Time >= 0.25)
 		{
-			CurrentCost += IncreaseRate;
-		CurrentCostText.Text = $"잔고 : {CurrentCost}";
-		GD.Print($"잔고 : {CurrentCost}");
+			CurrentBalance += IncreaseRate;
+		CurrentCostText.Text = $"잔고 : {CurrentBalance}";
 
 		Time = 0;
 		}		
     }
+
 }

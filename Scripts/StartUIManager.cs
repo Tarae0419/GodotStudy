@@ -1,9 +1,10 @@
 using Godot;
 using System;
+using System.IO;
 
 public partial class StartUIManager : Control
 {
-	public String GameScene = "res://UI/panel.tscn";
+	private String GameScene = "res://UI/panel.tscn";
 	public override void _Ready()
 	{
 		var StartButton = GetNode<Button>("Panel/StartButton");
@@ -13,7 +14,6 @@ public partial class StartUIManager : Control
 
 	private void ChangeStartScene()
 	{
-		GD.Print("씬 이동");
 		GetTree().ChangeSceneToFile(GameScene);
 	}
 }
