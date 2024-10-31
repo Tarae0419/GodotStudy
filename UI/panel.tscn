@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c48t55nnehpy0"]
+[gd_scene load_steps=6 format=3 uid="uid://c48t55nnehpy0"]
 
 [ext_resource type="Script" path="res://Scripts/UpgradeManager.cs" id="1_anmsu"]
 [ext_resource type="Script" path="res://Scripts/PlayerStats.cs" id="2_snj7w"]
 [ext_resource type="Script" path="res://Scripts/CostManager.cs" id="3_yyj1v"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="4_y10sb"]
+[ext_resource type="Script" path="res://Scripts/UIManager.cs" id="5_d1xfg"]
 
 [node name="Panel" type="Panel"]
 self_modulate = Color(0, 57.979, 100, 1)
@@ -20,7 +21,6 @@ offset_right = 475.0
 offset_bottom = 650.0
 theme_override_font_sizes/font_size = 35
 text = "공격력 업그레이드"
-script = ExtResource("1_anmsu")
 
 [node name="StatText" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(300, 170)
@@ -46,7 +46,6 @@ offset_right = 475.0
 offset_bottom = 800.0
 theme_override_font_sizes/font_size = 35
 text = "방어력 업그레이드"
-script = ExtResource("1_anmsu")
 
 [node name="UpgradeHealthButton" type="Button" parent="."]
 custom_minimum_size = Vector2(350, 100)
@@ -57,7 +56,6 @@ offset_right = 475.0
 offset_bottom = 950.0
 theme_override_font_sizes/font_size = 35
 text = "체력 업그레이드"
-script = ExtResource("1_anmsu")
 
 [node name="CurrentCost" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(300, 60)
@@ -84,5 +82,11 @@ text = "체크"
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("4_y10sb")
+
+[node name="UpgradeManager" type="Node" parent="."]
+script = ExtResource("1_anmsu")
+
+[node name="UIManager" type="Node" parent="."]
+script = ExtResource("5_d1xfg")
 
 [connection signal="pressed" from="UpgradeAttackButton" to="UpgradeAttackButton" method="_on_pressed"]

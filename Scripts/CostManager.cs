@@ -24,4 +24,11 @@ public partial class CostManager : Node
 		}		
     }
 
+	public int UpgradeCost(int Level)
+	{
+		var Cost = 500 + Level * 25;
+
+		return Cost;
+	}
+
 }
