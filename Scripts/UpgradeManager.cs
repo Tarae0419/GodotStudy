@@ -3,12 +3,12 @@ using Godot;
 public partial class UpgradeManager : Node
 {
 	private int AttackStat;
-	private TextEdit AttackText; 
+	private Label AttackText; 
 	private PlayerStats PlayerStat;
 
 	public override void _Ready()
 	{
-		AttackText = GetNode<TextEdit>("../StatText");
+		AttackText = GetNode<Label>("../StatPanel/StatText");
 		PlayerStat = GetNode<PlayerStats>("../PlayerStat");
 	}
 	public void OnAttackButtonPressed()
@@ -28,6 +28,9 @@ public partial class UpgradeManager : Node
 	}
 	private void UpdateStat()
 	{
-		AttackText.Text = $"현재 공격력 : {PlayerStat.GetAttackStat()}\n현재 방어력 : {PlayerStat.GetDefenseStat()}\n현재 체력 : {PlayerStat.GetHealthStat()}";
+		AttackText.Text = 	$"현재 공격력 : {PlayerStat.GetAttackStat()}\n" +
+							$"현재 방어력 : {PlayerStat.GetDefenseStat()}\n" +
+							$"현재 체력 : {PlayerStat.GetHealthStat()}\n" +
+							$"현재 라운드 : ";
 	}
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c48t55nnehpy0"]
+[gd_scene load_steps=10 format=3 uid="uid://c48t55nnehpy0"]
 
 [ext_resource type="Script" path="res://Scripts/UpgradeManager.cs" id="1_anmsu"]
 [ext_resource type="Script" path="res://Scripts/PlayerStats.cs" id="2_snj7w"]
@@ -6,56 +6,26 @@
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="4_y10sb"]
 [ext_resource type="Script" path="res://Scripts/UIManager.cs" id="5_d1xfg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vscu"]
+bg_color = Color(0.776818, 0.819746, 0.535494, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78eiu"]
+bg_color = Color(0.839216, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swatu"]
+bg_color = Color(0.258484, 0.606188, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6k2j"]
+bg_color = Color(0.839216, 0, 0, 1)
+
 [node name="Panel" type="Panel"]
-self_modulate = Color(0, 57.979, 100, 1)
 custom_minimum_size = Vector2(600, 1024)
 offset_right = 600.0
 offset_bottom = 1024.0
-
-[node name="UpgradeAttackButton" type="Button" parent="."]
-custom_minimum_size = Vector2(350, 100)
-layout_mode = 0
-offset_left = 125.0
-offset_top = 550.0
-offset_right = 475.0
-offset_bottom = 650.0
-theme_override_font_sizes/font_size = 35
-text = "공격력 업그레이드"
-
-[node name="StatText" type="TextEdit" parent="."]
-custom_minimum_size = Vector2(300, 170)
-layout_mode = 0
-offset_left = 50.0
-offset_top = 215.0
-offset_right = 350.0
-offset_bottom = 385.0
-theme_override_font_sizes/font_size = 35
-text = "현재 공격력 : 3
-현재 방어력 : 3
-현재 체력 : 20"
+theme_override_styles/panel = SubResource("StyleBoxFlat_6vscu")
 
 [node name="PlayerStat" type="Node" parent="."]
 script = ExtResource("2_snj7w")
-
-[node name="UpgradeDefenseButton" type="Button" parent="."]
-custom_minimum_size = Vector2(350, 100)
-layout_mode = 0
-offset_left = 125.0
-offset_top = 700.0
-offset_right = 475.0
-offset_bottom = 800.0
-theme_override_font_sizes/font_size = 35
-text = "방어력 업그레이드"
-
-[node name="UpgradeHealthButton" type="Button" parent="."]
-custom_minimum_size = Vector2(350, 100)
-layout_mode = 0
-offset_left = 125.0
-offset_top = 850.0
-offset_right = 475.0
-offset_bottom = 950.0
-theme_override_font_sizes/font_size = 35
-text = "체력 업그레이드"
 
 [node name="CurrentCost" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(300, 60)
@@ -89,4 +59,132 @@ script = ExtResource("1_anmsu")
 [node name="UIManager" type="Node" parent="."]
 script = ExtResource("5_d1xfg")
 
-[connection signal="pressed" from="UpgradeAttackButton" to="UpgradeAttackButton" method="_on_pressed"]
+[node name="UpgradePanel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(500, 350)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 525.0
+offset_right = 550.0
+offset_bottom = 875.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_78eiu")
+
+[node name="UpgradeAttackButton" type="Button" parent="UpgradePanel"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 0
+offset_left = 150.0
+offset_right = 500.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 35
+text = "공격력 업그레이드"
+
+[node name="UpgradeDefenseButton" type="Button" parent="UpgradePanel"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 125.0
+offset_right = 500.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 35
+text = "방어력 업그레이드"
+
+[node name="UpgradeHealthButton" type="Button" parent="UpgradePanel"]
+custom_minimum_size = Vector2(350, 100)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 250.0
+offset_right = 500.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 35
+text = "체력 업그레이드"
+
+[node name="CurrentAttackLevel" type="Label" parent="UpgradePanel"]
+custom_minimum_size = Vector2(130, 70)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 140.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 50
+text = "LV 1"
+
+[node name="CurrentDefenseLevel" type="Label" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 140.0
+offset_right = 140.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 50
+text = "LV 1"
+
+[node name="CurrentHealthLevel" type="Label" parent="UpgradePanel"]
+custom_minimum_size = Vector2(130, 70)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 265.0
+offset_right = 140.0
+offset_bottom = 335.0
+theme_override_font_sizes/font_size = 50
+text = "LV 1"
+
+[node name="SelectPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 900.0
+offset_right = 550.0
+offset_bottom = 1000.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_swatu")
+
+[node name="StatButton" type="Button" parent="SelectPanel"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 25
+text = "현재 정보"
+
+[node name="UpdateButton" type="Button" parent="SelectPanel"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 0
+offset_left = 175.0
+offset_top = 10.0
+offset_right = 325.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 25
+text = "스텟 업글"
+
+[node name="IncomeButton" type="Button" parent="SelectPanel"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 0
+offset_left = 350.0
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 25
+text = "수입 업글"
+
+[node name="StatPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 350)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 525.0
+offset_right = 550.0
+offset_bottom = 875.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6k2j")
+
+[node name="StatText" type="Label" parent="StatPanel"]
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 310.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 40
+text = "현재 공격력 : 3
+현재 방어력 : 3
+현재 체력 : 20
+현재 라운드 : 1"
+
+[connection signal="pressed" from="UpgradePanel/UpgradeAttackButton" to="UpgradePanel/UpgradeAttackButton" method="_on_pressed"]
