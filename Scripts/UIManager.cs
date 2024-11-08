@@ -31,7 +31,7 @@ public partial class UIManager : Node
 		DefenseButton.Connect("pressed", new Callable(upgradeManager, "OnDefenseButtonPressed"));
 		HealthButton.Connect("pressed", new Callable(upgradeManager, "OnHealthButtonPressed"));
 		StatButton.Connect("pressed", new Callable(this, "setStatPanel"));
-		UpdateButton.Connect("pressed", new Callable(this, "setUpgradePanel"));
+		UpdateButton.Connect("pressed",Callable.From(setUpgradePanel));
 	}
 
 	public void Check()
@@ -48,8 +48,6 @@ public partial class UIManager : Node
 	{
 		upgradePanel.Show();
 		statPanel.Hide();
-
 	}
-
 	
 }
