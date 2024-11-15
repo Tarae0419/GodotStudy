@@ -35,10 +35,29 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(350, 120)
 layout_mode = 0
 offset_left = 130.0
-offset_top = 517.0
+offset_top = 500.0
 offset_right = 480.0
-offset_bottom = 637.0
+offset_bottom = 620.0
 theme_override_font_sizes/font_size = 55
 text = "시작하기"
+
+[node name="QuitButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(350, 120)
+layout_mode = 0
+offset_left = 130.0
+offset_top = 800.0
+offset_right = 480.0
+offset_bottom = 920.0
+theme_override_font_sizes/font_size = 55
+text = "종료하기"
+
+[node name="OptionButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(350, 120)
+offset_left = 130.0
+offset_top = 650.0
+offset_right = 480.0
+offset_bottom = 770.0
+theme_override_font_sizes/font_size = 55
+text = "옵션"
 
 [node name="Login" parent="." instance=ExtResource("2_f0l4e")]
