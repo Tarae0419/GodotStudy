@@ -9,6 +9,7 @@ public partial class UIManager : Node
 	private Panel upgradePanel;
 	private Panel selectPanel;
 	private Panel statPanel;
+	private Control IncomeScene;
 	public override void _Ready()
 	{
 		playerData = GetNode<PlayerStats>("../PlayerStat");
@@ -17,6 +18,7 @@ public partial class UIManager : Node
 		upgradePanel = GetNode<Panel>("../UpgradePanel");
 		selectPanel = GetNode<Panel>("../SelectPanel");
 		statPanel = GetNode<Panel>("../StatPanel");
+		IncomeScene = GetNode<Control>("../Income");
 
 		var button = GetNode<Button>("../CheckButton");
 		var AttackButton = GetNode<Button>("../UpgradePanel/UpgradeAttackButton");
@@ -49,5 +51,7 @@ public partial class UIManager : Node
 		upgradePanel.Show();
 		statPanel.Hide();
 	}
+	private void setIncomePanel()
+	{}
 	
 }
