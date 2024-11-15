@@ -1,3 +1,67 @@
-[gd_scene format=3 uid="uid://dlmvl31acywcd"]
+[gd_scene load_steps=3 format=3 uid="uid://dlmvl31acywcd"]
+
+[ext_resource type="Script" path="res://Scripts/LoginManager.cs" id="1_wrni5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t6lg1"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Login" type="Node"]
+script = ExtResource("1_wrni5")
+
+[node name="SignInPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(400, 500)
+offset_left = 100.0
+offset_top = 250.0
+offset_right = 500.0
+offset_bottom = 750.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_t6lg1")
+
+[node name="IDEdit" type="LineEdit" parent="SignInPanel"]
+custom_minimum_size = Vector2(250, 35)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 125.0
+offset_right = 270.0
+offset_bottom = 160.0
+theme_override_colors/clear_button_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(1, 1, 1, 1)
+placeholder_text = "이메일을 입력해 주세요..."
+
+[node name="IDLabel" type="Label" parent="SignInPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 76.0
+offset_right = 95.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "이메일"
+
+[node name="PWEdit" type="LineEdit" parent="SignInPanel"]
+custom_minimum_size = Vector2(250, 35)
+layout_mode = 0
+offset_left = 25.0
+offset_top = 225.0
+offset_right = 275.0
+offset_bottom = 260.0
+placeholder_text = "비밀번호를 입력해 주세요..."
+
+[node name="PWLabel" type="Label" parent="SignInPanel"]
+custom_minimum_size = Vector2(50, 35)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 175.0
+offset_right = 120.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "비밀번호"
+
+[node name="LoginButton" type="Button" parent="SignInPanel"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 300.0
+offset_bottom = 450.0
+text = "확인"

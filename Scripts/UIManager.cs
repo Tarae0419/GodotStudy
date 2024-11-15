@@ -28,30 +28,33 @@ public partial class UIManager : Node
 		var UpdateButton = GetNode<Button>("../SelectPanel/UpdateButton");
 		var IncomeButton = GetNode<Button>("../SelectPanel/IncomeButton");
 
-		button.Connect("pressed", new Callable(this, "Check"));
+		button.Connect("pressed",Callable.From(Check));
         AttackButton.Connect("pressed", new Callable(upgradeManager, "OnAttackButtonPressed"));
 		DefenseButton.Connect("pressed", new Callable(upgradeManager, "OnDefenseButtonPressed"));
 		HealthButton.Connect("pressed", new Callable(upgradeManager, "OnHealthButtonPressed"));
-		StatButton.Connect("pressed", new Callable(this, "setStatPanel"));
-		UpdateButton.Connect("pressed",Callable.From(setUpgradePanel));
+		StatButton.Connect("pressed",Callable.From(SetStatPanel));
+		UpdateButton.Connect("pressed",Callable.From(SetUpgradePanel));
 	}
 
-	public void Check()
+	private void Check()
 	{
 		GD.Print($"현재 공격력 : {playerData.GetAttackStat()}");
 		GD.Print($"현재 잔고 : {costManager.CurrentBalance}");
 	}
-	private void setStatPanel()
+	private void SetStatPanel()
 	{
 		statPanel.Show();
 		upgradePanel.Hide();
 	}
-	private void setUpgradePanel()
+	private void SetUpgradePanel()
 	{
 		upgradePanel.Show();
 		statPanel.Hide();
 	}
-	private void setIncomePanel()
-	{}
+
+	private void SetIncomePanel()
+	{
+		
+	}
 	
 }
