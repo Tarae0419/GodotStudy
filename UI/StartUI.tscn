@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c50wrnplxlrti"]
+[gd_scene load_steps=3 format=3 uid="uid://c50wrnplxlrti"]
 
 [ext_resource type="Script" path="res://Scripts/StartUIManager.cs" id="1_s0n8o"]
+[ext_resource type="PackedScene" uid="uid://dlmvl31acywcd" path="res://UI/Login.tscn" id="2_f0l4e"]
 
 [node name="StartUi" type="Control"]
 layout_mode = 3
@@ -39,3 +40,5 @@ offset_right = 480.0
 offset_bottom = 637.0
 theme_override_font_sizes/font_size = 55
 text = "시작하기"
+
+[node name="Login" parent="." instance=ExtResource("2_f0l4e")]
