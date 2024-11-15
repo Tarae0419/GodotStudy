@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlmvl31acywcd"]
+[gd_scene load_steps=5 format=3 uid="uid://dlmvl31acywcd"]
 
 [ext_resource type="Script" path="res://Scripts/LoginManager.cs" id="1_wrni5"]
 
@@ -7,6 +7,9 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovm55"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2objc"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Login" type="Node"]
 script = ExtResource("1_wrni5")
@@ -23,9 +26,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_t6lg1")
 custom_minimum_size = Vector2(300, 35)
 layout_mode = 0
 offset_left = 50.0
-offset_top = 140.0
+offset_top = 130.0
 offset_right = 350.0
-offset_bottom = 175.0
+offset_bottom = 165.0
 theme_override_colors/clear_button_color = Color(1, 1, 1, 1)
 theme_override_colors/selection_color = Color(1, 1, 1, 1)
 placeholder_text = "이메일을 입력해 주세요..."
@@ -33,9 +36,9 @@ placeholder_text = "이메일을 입력해 주세요..."
 [node name="IDLabel" type="Label" parent="SignInPanel"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 0
-offset_top = 100.0
+offset_top = 90.0
 offset_right = 400.0
-offset_bottom = 135.0
+offset_bottom = 125.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "이메일"
@@ -45,17 +48,17 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(300, 35)
 layout_mode = 0
 offset_left = 50.0
-offset_top = 240.0
+offset_top = 230.0
 offset_right = 350.0
-offset_bottom = 275.0
+offset_bottom = 265.0
 placeholder_text = "비밀번호를 입력해 주세요..."
 
 [node name="PWLabel" type="Label" parent="SignInPanel"]
 custom_minimum_size = Vector2(400, 35)
 layout_mode = 0
-offset_top = 200.0
+offset_top = 190.0
 offset_right = 400.0
-offset_bottom = 235.0
+offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "비밀번호"
@@ -68,6 +71,7 @@ offset_left = 100.0
 offset_top = 400.0
 offset_right = 300.0
 offset_bottom = 450.0
+theme_override_font_sizes/font_size = 25
 text = "확인"
 
 [node name="LogInTitle" type="Label" parent="SignInPanel"]
@@ -84,9 +88,9 @@ horizontal_alignment = 1
 [node name="SignUpButton" type="Button" parent="SignInPanel"]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 300.0
+offset_top = 365.0
 offset_right = 154.0
-offset_bottom = 331.0
+offset_bottom = 396.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_ovm55")
 text = "회원가입하기"
@@ -98,3 +102,88 @@ offset_left = 100.0
 offset_top = 250.0
 offset_right = 500.0
 offset_bottom = 750.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2objc")
+
+[node name="CreateIDEdit" type="LineEdit" parent="SignUpPanel"]
+custom_minimum_size = Vector2(300, 35)
+offset_left = 50.0
+offset_top = 140.0
+offset_right = 350.0
+offset_bottom = 175.0
+theme_override_colors/clear_button_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(1, 1, 1, 1)
+placeholder_text = "이메일을 입력해 주세요..."
+
+[node name="CreateIDLabel" type="Label" parent="SignUpPanel"]
+custom_minimum_size = Vector2(400, 0)
+offset_top = 100.0
+offset_right = 400.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "이메일"
+horizontal_alignment = 1
+
+[node name="CreatePWEdit" type="LineEdit" parent="SignUpPanel"]
+custom_minimum_size = Vector2(300, 35)
+offset_left = 50.0
+offset_top = 230.0
+offset_right = 350.0
+offset_bottom = 265.0
+placeholder_text = "비밀번호를 입력해 주세요..."
+
+[node name="CreatePWLabel" type="Label" parent="SignUpPanel"]
+custom_minimum_size = Vector2(400, 35)
+offset_top = 190.0
+offset_right = 400.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "비밀번호"
+horizontal_alignment = 1
+
+[node name="SignInButton" type="Button" parent="SignUpPanel"]
+offset_left = 50.0
+offset_top = 365.0
+offset_right = 154.0
+offset_bottom = 396.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ovm55")
+text = "로그인하기"
+
+[node name="CreateButton" type="Button" parent="SignUpPanel"]
+custom_minimum_size = Vector2(200, 50)
+offset_left = 100.0
+offset_top = 400.0
+offset_right = 300.0
+offset_bottom = 450.0
+theme_override_font_sizes/font_size = 25
+text = "생성하기"
+
+[node name="SignUpTitle" type="Label" parent="SignUpPanel"]
+custom_minimum_size = Vector2(400, 0)
+offset_top = 25.0
+offset_right = 400.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "회원가입"
+horizontal_alignment = 1
+
+[node name="CreatePWEdit2" type="LineEdit" parent="SignUpPanel"]
+custom_minimum_size = Vector2(300, 35)
+offset_left = 50.0
+offset_top = 330.0
+offset_right = 350.0
+offset_bottom = 365.0
+placeholder_text = "비밀번호를 다시 입력해 주세요..."
+
+[node name="CreatePWLabel2" type="Label" parent="SignUpPanel"]
+custom_minimum_size = Vector2(400, 35)
+offset_top = 290.0
+offset_right = 400.0
+offset_bottom = 326.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "비밀번호 확인"
+horizontal_alignment = 1
