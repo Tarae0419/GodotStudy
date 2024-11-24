@@ -3,53 +3,53 @@ using System;
 
 public partial class UIManager : Node
 {
-	private PlayerStats playerData;
-	private CostManager costManager;
-	private UpgradeManager upgradeManager;
-	private Panel upgradePanel;
-	private Panel selectPanel;
-	private Panel statPanel;
-	private Control IncomeScene;
+	private PlayerStats _playerData;
+	private CostManager _costManager;
+	private UpgradeManager _upgradeManager;
+	private Panel _upgradePanel;
+	private Panel _selectPanel;
+	private Panel _statPanel;
+	private Control _incomeScene;
 	public override void _Ready()
 	{
-		playerData = GetNode<PlayerStats>("../PlayerStat");
-		costManager = GetNode<CostManager>("../CostManager");
-		upgradeManager = GetNode<UpgradeManager>("../UpgradeManager");
-		upgradePanel = GetNode<Panel>("../UpgradePanel");
-		selectPanel = GetNode<Panel>("../SelectPanel");
-		statPanel = GetNode<Panel>("../StatPanel");
-		IncomeScene = GetNode<Control>("../Income");
+		_playerData = GetNode<PlayerStats>("../Stage/Player/PlayerStat");
+		_costManager = GetNode<CostManager>("../CostManager");
+		_upgradeManager = GetNode<UpgradeManager>("../UpgradeManager");
+		_upgradePanel = GetNode<Panel>("../UpgradePanel");
+		_selectPanel = GetNode<Panel>("../SelectPanel");
+		_statPanel = GetNode<Panel>("../StatPanel");
+		_incomeScene = GetNode<Control>("../Income");
 
 		var button = GetNode<Button>("../CheckButton");
-		var AttackButton = GetNode<Button>("../UpgradePanel/UpgradeAttackButton");
-		var DefenseButton = GetNode<Button>("../UpgradePanel/UpgradeDefenseButton");
-		var HealthButton = GetNode<Button>("../UpgradePanel/UpgradeHealthButton");
-		var StatButton = GetNode<Button>("../SelectPanel/StatButton");
-		var UpdateButton = GetNode<Button>("../SelectPanel/UpdateButton");
-		var IncomeButton = GetNode<Button>("../SelectPanel/IncomeButton");
+		var attackButton = GetNode<Button>("../UpgradePanel/UpgradeAttackButton");
+		var defenseButton = GetNode<Button>("../UpgradePanel/UpgradeDefenseButton");
+		var healthButton = GetNode<Button>("../UpgradePanel/UpgradeHealthButton");
+		var statButton = GetNode<Button>("../SelectPanel/StatButton");
+		var updateButton = GetNode<Button>("../SelectPanel/UpdateButton");
+		var incomeButton = GetNode<Button>("../SelectPanel/IncomeButton");
 
 		button.Connect("pressed",Callable.From(Check));
-        AttackButton.Connect("pressed", new Callable(upgradeManager, "OnAttackButtonPressed"));
-		DefenseButton.Connect("pressed", new Callable(upgradeManager, "OnDefenseButtonPressed"));
-		HealthButton.Connect("pressed", new Callable(upgradeManager, "OnHealthButtonPressed"));
-		StatButton.Connect("pressed",Callable.From(SetStatPanel));
-		UpdateButton.Connect("pressed",Callable.From(SetUpgradePanel));
+        attackButton.Connect("pressed", new Callable(_upgradeManager, "OnAttackButtonPressed"));
+		defenseButton.Connect("pressed", new Callable(_upgradeManager, "OnDefenseButtonPressed"));
+		healthButton.Connect("pressed", new Callable(_upgradeManager, "OnHealthButtonPressed"));
+		statButton.Connect("pressed",Callable.From(SetStatPanel));
+		updateButton.Connect("pressed",Callable.From(SetUpgradePanel));
 	}
 
 	private void Check()
 	{
-		GD.Print($"현재 공격력 : {playerData.GetAttackStat()}");
-		GD.Print($"현재 잔고 : {costManager.CurrentBalance}");
+		GD.Print($"현재 공격력 : {_playerData.GetAttackStat()}");
+		GD.Print($"현재 잔고 : {_costManager.CurrentBalance}");
 	}
 	private void SetStatPanel()
 	{
-		statPanel.Show();
-		upgradePanel.Hide();
+		_statPanel.Show();
+		_upgradePanel.Hide();
 	}
 	private void SetUpgradePanel()
 	{
-		upgradePanel.Show();
-		statPanel.Hide();
+		_upgradePanel.Show();
+		_statPanel.Hide();
 	}
 
 	private void SetIncomePanel()

@@ -2,35 +2,35 @@ using Godot;
 
 public partial class UpgradeManager : Node
 {
-	private int AttackStat;
-	private Label AttackText; 
-	private PlayerStats PlayerStat;
+	private int _attackStat;
+	private Label _attackText; 
+	private PlayerStats _playerStat;
 
 	public override void _Ready()
 	{
-		AttackText = GetNode<Label>("../StatPanel/StatText");
-		PlayerStat = GetNode<PlayerStats>("../PlayerStat");
+		_attackText = GetNode<Label>("../StatPanel/StatText");
+		_playerStat = GetNode<PlayerStats>("../Stage/Player/PlayerStat");
 	}
 	public void OnAttackButtonPressed()
 	{
-		PlayerStat.UpgradeAttack(3);
+		_playerStat.UpgradeAttack(3);
 		UpdateStat();
 	}
 	public void OnDefenseButtonPressed()
 	{
-		PlayerStat.UpgradeDefense(3);
+		_playerStat.UpgradeDefense(3);
 		UpdateStat();
 	}
 	public void OnHealthButtonPressed()
 	{
-		PlayerStat.UpgradeHealth(5);
+		_playerStat.UpgradeHealth(5);
 		UpdateStat();
 	}
 	private void UpdateStat()
 	{
-		AttackText.Text = 	$"현재 공격력 : {PlayerStat.GetAttackStat()}\n" +
-							$"현재 방어력 : {PlayerStat.GetDefenseStat()}\n" +
-							$"현재 체력 : {PlayerStat.GetHealthStat()}\n" +
+		_attackText.Text = 	$"현재 공격력 : {_playerStat.GetAttackStat()}\n" +
+							$"현재 방어력 : {_playerStat.GetDefenseStat()}\n" +
+							$"현재 체력 : {_playerStat.GetHealthStat()}\n" +
 							$"현재 라운드 : ";
 	}
 }

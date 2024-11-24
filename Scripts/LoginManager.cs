@@ -5,26 +5,26 @@ using System.Text.RegularExpressions;
 
 public partial class LoginManager : Node
 {
-	private LineEdit _IDEdit;
-	private LineEdit _PasswordEdit;
-	private LineEdit _CreateIDEdit;
-	private LineEdit _CreatePasswordEdit;
-	private LineEdit _CreatePasswordEdit2;
-	private Button _LoginButton;
-	private Button _SignInButton;
-	private Button _SignUpButton;
-	private Button _CreateButton;
-	private Panel _SignInPanel;
-	private Panel _SignUpPanel;
+	private LineEdit _iDEdit;
+	private LineEdit _passwordEdit;
+	private LineEdit _createIdEdit;
+	private LineEdit _createPasswordEdit;
+	private LineEdit _createPasswordEdit2;
+	private Button _loginButton;
+	private Button _signInButton;
+	private Button _signUpButton;
+	private Button _createButton;
+	private Panel _signInPanel;
+	private Panel _signUpPanel;
 	
-	private String _startUI = "res://UI/StartUI.tscn";
+	private String _startUi = "res://UI/StartUI.tscn";
 	
 	private static readonly Regex EmailRegex = new Regex(
 		@"^[^@\s]+@[^@\s]+\.[^@\s]+$",
 		RegexOptions.Compiled
 	);
 
-	private Dictionary<string, string> _userDatabase = new Dictionary<string, string>
+	private readonly Dictionary<string, string> _userDatabase = new Dictionary<string, string>
     {
         { "a@naver.com", "a" },
         { "b@naver.com", "b" },
@@ -33,35 +33,35 @@ public partial class LoginManager : Node
 	
 	public override void _Ready()
 	{
-		_IDEdit = GetNode<LineEdit>("SignInPanel/IDEdit");
-		_PasswordEdit = GetNode<LineEdit>("SignInPanel/PWEdit");
-		_CreateIDEdit = GetNode<LineEdit>("SignUpPanel/CreateIDEdit");
-		_CreatePasswordEdit = GetNode<LineEdit>("SignUpPanel/CreatePWEdit");
-		_CreatePasswordEdit2 = GetNode<LineEdit>("SignUpPanel/CreatePWEdit2");
+		_iDEdit = GetNode<LineEdit>("SignInPanel/IDEdit");
+		_passwordEdit = GetNode<LineEdit>("SignInPanel/PWEdit");
+		_createIdEdit = GetNode<LineEdit>("SignUpPanel/CreateIDEdit");
+		_createPasswordEdit = GetNode<LineEdit>("SignUpPanel/CreatePWEdit");
+		_createPasswordEdit2 = GetNode<LineEdit>("SignUpPanel/CreatePWEdit2");
 		
-		_LoginButton = GetNode<Button>("SignInPanel/LoginButton");
-		_SignInButton = GetNode<Button>("SignUpPanel/SignInButton");
-		_SignUpButton = GetNode<Button>("SignInPanel/SignUpButton");
-		_CreateButton = GetNode<Button>("SignUpPanel/CreateButton");
+		_loginButton = GetNode<Button>("SignInPanel/LoginButton");
+		_signInButton = GetNode<Button>("SignUpPanel/SignInButton");
+		_signUpButton = GetNode<Button>("SignInPanel/SignUpButton");
+		_createButton = GetNode<Button>("SignUpPanel/CreateButton");
 		
-		_SignInPanel = GetNode<Panel>("SignInPanel");
-		_SignUpPanel = GetNode<Panel>("SignUpPanel");
+		_signInPanel = GetNode<Panel>("SignInPanel");
+		_signUpPanel = GetNode<Panel>("SignUpPanel");
 		
-		_LoginButton.Connect("pressed",Callable.From(Login));
-		_SignUpButton.Connect("pressed", Callable.From(ShowSignUpPanel));
-		_SignInButton.Connect("pressed", Callable.From(ShowSignInPanel));
-		_CreateButton.Connect("pressed", Callable.From(CreateUser));
+		_loginButton.Connect("pressed",Callable.From(Login));
+		_signUpButton.Connect("pressed", Callable.From(ShowSignUpPanel));
+		_signInButton.Connect("pressed", Callable.From(ShowSignInPanel));
+		_createButton.Connect("pressed", Callable.From(CreateUser));
 
 	}
 
 	private void Login()
 	{
-		string enteredUsername = _IDEdit.Text;
-		string enteredPassword = _PasswordEdit.Text;
+		string enteredUsername = _iDEdit.Text;
+		string enteredPassword = _passwordEdit.Text;
 
 		if (CheckLogin(enteredUsername, enteredPassword) && IsEmailValid(enteredUsername))
 		{
-			_SignInPanel.Hide();
+			_signInPanel.Hide();
 		}
 		else if (!IsEmailValid(enteredUsername))
 		{
@@ -84,14 +84,14 @@ public partial class LoginManager : Node
 
 	private void ShowSignUpPanel()
 	{
-		_SignInPanel.Hide();
-		_SignUpPanel.Show();
+		_signInPanel.Hide();
+		_signUpPanel.Show();
 	}
 	
 	private void ShowSignInPanel()
 	{
-		_SignUpPanel.Hide();
-		_SignInPanel.Show();
+		_signUpPanel.Hide();
+		_signInPanel.Show();
 	}
 	
 	private bool IsEmailValid(string email)
@@ -101,9 +101,9 @@ public partial class LoginManager : Node
 
 	private void CreateUser()
 	{
-		string enteredUsername = _CreateIDEdit.Text;
-		string enteredPassword = _CreatePasswordEdit.Text;
-		string enteredConfirmPassword = _CreatePasswordEdit2.Text;
+		string enteredUsername = _createIdEdit.Text;
+		string enteredPassword = _createPasswordEdit.Text;
+		string enteredConfirmPassword = _createPasswordEdit2.Text;
 
 		if (!IsEmailValid(enteredUsername) && !ConfirmPassword(enteredPassword, enteredConfirmPassword))
 		{
@@ -121,7 +121,7 @@ public partial class LoginManager : Node
 		{
 			GD.Print("이메일과 비밀번호를 입력해주세요.");
 			GD.Print("생성 완료!");
-			_userDatabase.Add(enteredUsername, _CreatePasswordEdit.Text);
+			_userDatabase.Add(enteredUsername, _createPasswordEdit.Text);
 			ShowSignInPanel();
 		}
 	}

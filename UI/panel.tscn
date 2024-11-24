@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://c48t55nnehpy0"]
 
 [ext_resource type="Script" path="res://Scripts/UpgradeManager.cs" id="1_anmsu"]
-[ext_resource type="Script" path="res://Scripts/PlayerStats.cs" id="2_snj7w"]
 [ext_resource type="Script" path="res://Scripts/CostManager.cs" id="3_yyj1v"]
 [ext_resource type="Script" path="res://Scripts/GameManager.cs" id="4_y10sb"]
 [ext_resource type="Script" path="res://Scripts/UIManager.cs" id="5_d1xfg"]
 [ext_resource type="PackedScene" uid="uid://gek8l6dicms5" path="res://UI/InComePanel.tscn" id="6_hbxi3"]
+[ext_resource type="PackedScene" uid="uid://dfrsuy7bpm5dk" path="res://UI/Stage.tscn" id="7_xwct6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vscu"]
 bg_color = Color(0.776818, 0.819746, 0.535494, 1)
@@ -24,9 +24,6 @@ custom_minimum_size = Vector2(600, 1024)
 offset_right = 600.0
 offset_bottom = 1024.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6vscu")
-
-[node name="PlayerStat" type="Node" parent="."]
-script = ExtResource("2_snj7w")
 
 [node name="CurrentCost" type="TextEdit" parent="."]
 custom_minimum_size = Vector2(300, 60)
@@ -191,5 +188,7 @@ text = "현재 공격력 : 3
 [node name="Income" parent="." instance=ExtResource("6_hbxi3")]
 visible = false
 layout_mode = 1
+
+[node name="Stage" parent="." instance=ExtResource("7_xwct6")]
 
 [connection signal="pressed" from="UpgradePanel/UpgradeAttackButton" to="UpgradePanel/UpgradeAttackButton" method="_on_pressed"]

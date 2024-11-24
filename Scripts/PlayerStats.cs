@@ -11,7 +11,7 @@ public partial class PlayerStats : Node
     private int Health { get; set; } = 20;
 	private int HealthLevel {get; set;} = 1;
 
-    public void UpgradeAttack(int amount)
+	public void UpgradeAttack(int amount)
 	{
 		Attack += amount;
 		AttackLevel += 1;

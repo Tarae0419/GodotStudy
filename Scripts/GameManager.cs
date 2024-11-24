@@ -3,24 +3,22 @@ using System;
 
 public partial class GameManager : Node
 {
-	private PlayerStats playerData;
+	private PlayerStats _playerData;
+	public int StageLevel { get; set; }
 	public override void _Ready()
 	{
-		playerData = GetNode<PlayerStats>("../PlayerStat");
+		_playerData = GetNode<PlayerStats>("../Stage/Player/PlayerStat");
 
+		StageLevel = 1;
 	}
-
-	public override void _Process(double delta)
-	{
-	}
-
+	
 	public Godot.Collections.Dictionary<string, Variant> Save()
 	{
 		return new Godot.Collections.Dictionary<string, Variant>()
 		{
-			{"PlayerAttack", playerData.GetAttackStat() },
-			{"PlayerDefense", playerData.GetDefenseStat()},
-			{"PlayerHealth", playerData.GetHealthStat()}
+			{"PlayerAttack", _playerData.GetAttackStat() },
+			{"PlayerDefense", _playerData.GetDefenseStat()},
+			{"PlayerHealth", _playerData.GetHealthStat()}
 		};
 	}
 }

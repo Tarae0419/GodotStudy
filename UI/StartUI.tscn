@@ -53,6 +53,7 @@ text = "종료하기"
 
 [node name="OptionButton" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(350, 120)
+layout_mode = 0
 offset_left = 130.0
 offset_top = 650.0
 offset_right = 480.0

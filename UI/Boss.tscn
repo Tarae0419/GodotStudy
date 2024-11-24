@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://j72254i277a3"]
+
+[ext_resource type="Script" path="res://Scripts/Boss.cs" id="1_rcdio"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xt34s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyv7h"]
+
+[node name="Boss" type="CharacterBody2D"]
+scale = Vector2(50, 50)
+script = ExtResource("1_rcdio")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_xt34s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.04, 0.04)
+shape = SubResource("RectangleShape2D_fyv7h")
+one_way_collision_margin = 0.0
+debug_color = Color(0.8514, 0.371707, 5.77569e-07, 0.42)

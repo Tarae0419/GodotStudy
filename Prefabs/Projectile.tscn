@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dicked3txvfb"]
+
+[ext_resource type="Script" path="res://Scripts/Projectile.cs" id="1_loln3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwts0"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lx1qw"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_loln3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_wwts0")
+debug_color = Color(1, 0.6, 0.701961, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.329412, 1, 1)
+self_modulate = Color(0.474922, 0.0813014, 0.356894, 1)
+scale = Vector2(50, 50)
+texture = SubResource("CanvasTexture_lx1qw")
